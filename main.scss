@@ -1,1 +1,107 @@
+$text-color: #2F4F4F;
+$rank-color: #8B0000;
+$background-color: #eee;
+$effectDuration: 1s;
 
+body {
+  margin: 0;
+}
+
+html {
+  font-family: Arial;
+}
+
+.people {
+  min-width: 500px;
+  display: grid;
+  padding-block: 30px;
+
+  grid-template-columns: repeat(2, 200px);
+  row-gap: 40;
+  column-gap: 30px;
+  justify-content: center;
+}
+
+@media (min-width: 750px) {
+  .people {
+    padding-inline: 160px;
+  }
+  
+}
+
+@media (min-width: 1000px) {
+  .people {
+    grid-template-columns: repeat(4, 200px);
+    padding-inline: 55px;
+  }
+  
+}
+
+.person-photo {
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  transition: border-radius $effectDuration;
+
+  &:hover {
+    border-radius: 12%;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  color: $text-color;
+}
+
+.rank {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: relative;
+  background-color: #fff;
+  bottom: 136px;
+  left: 158px;
+  
+  &__number {
+    display: block;
+    color: $rank-color;
+    font-size: 16px;
+    line-height: 18.4px;
+    margin: auto;
+  }
+}
+
+.extra {
+opacity: 0;
+pointer-events: none;
+font-size: 20px;
+line-height: 23px;
+text-align: center;
+transition: all $effectDuration;
+}
+
+.person {
+  transition: background-color, border-radius, $effectDuration;
+
+  &:hover {
+    background-color: $background-color;
+    transform: scale(1.2);
+    border-radius: 12%;
+  }
+}
+
+.extra:hover {
+  opacity: 1;
+  pointer-events: all;
+  font-size: 21.6px;
+  line-height: 24.84px;
+  text-align: center;
+  color: #000;
+}
